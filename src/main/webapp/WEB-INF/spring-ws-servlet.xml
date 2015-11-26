@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!--Если не импортом отсюда, а через contextConfigLocation в web.xml, то не работает @Autowired для spring-data @Repository. Видимо, чото порядок инициализации бинов плавает или dynamic-wsdl. В spring-mvc - норм, spring-ws чото гонит.-->
+    <import resource="ormContext.xml"/>
+
+    <context:component-scan base-package="ru.sav.abusemanager"/>
+
+    <sws:annotation-driven/>
+
+    <sws:interceptors>
+        <bean class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+            <property name="validationActions" value="UsernameToken"/>
+            <property name="validationCallbackHandler">
+                <bean class="org.springframework.ws.soap.security.wss4j.callback.SimplePasswordValidationCallbackHandler">
+                    <property name="users">
+                        <props>
+                            <prop key="${wss.username}">${wss.password}</prop>
+                        </props>
+                    </property>
+                </bean>
+            </property>
+        </bean>
+    </sws:interceptors>
+
+    <!--<sws:dynamic-wsdl id="usermanager"-->
+                      <!--portTypeName="UserOperations"-->
+                      <!--locationUri="/">-->
+        <!--&lt;!&ndash;targetNamespace="http://sav.ru/abusemanager">&ndash;&gt;-->
+        <!--<sws:xsd location="/WEB-INF/usermanager.xsd"/>-->
+    <!--</sws:dynamic-wsdl>-->
+
+    <sws:static-wsdl id="usermanager" location="/WEB-INF/usermanager.wsdl"/>
+
+</beans>

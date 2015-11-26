@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://sav.ru/abusemanager"
+           elementFormDefault="unqualified"
+           targetNamespace="http://sav.ru/abusemanager">
+
+    <xs:element name="getUserByLoginRequest" type="tns:getUserByLoginRequest"/>
+    <xs:element name="getUserByLoginResponse" type="tns:getUserByLoginResponse"/>
+    <xs:element name="createUserRequest" type="tns:createUserRequest"/>
+    <xs:element name="createUserResponse" type="tns:createUserResponse"/>
+    <xs:element name="updateUserRequest" type="tns:updateUserRequest"/>
+    <xs:element name="updateUserResponse" type="tns:updateUserResponse"/>
+    <xs:element name="deleteUserRequest" type="tns:deleteUserRequest"/>
+    <xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+
+    <xs:element name="getUserGroupsRequest" type="tns:getUserGroupsRequest"/>
+    <xs:element name="getUserGroupsResponse" type="tns:getUserGroupsResponse"/>
+
+    <xs:element name="listGroupsRequest" type="tns:listGroupsRequest"/>
+    <xs:element name="listGroupsResponse" type="tns:listGroupsResponse"/>
+    <xs:element name="createGroupRequest" type="tns:createGroupRequest"/>
+    <xs:element name="createGroupResponse" type="tns:createGroupResponse"/>
+    <xs:element name="updateGroupRequest" type="tns:updateGroupRequest"/>
+    <xs:element name="updateGroupResponse" type="tns:updateGroupResponse"/>
+    <xs:element name="deleteGroupRequest" type="tns:deleteGroupRequest"/>
+    <xs:element name="deleteGroupResponse" type="tns:deleteGroupResponse"/>
+
+    <xs:element name="getGroupUsersRequest" type="tns:getGroupUsersRequest"/>
+    <xs:element name="getGroupUsersResponse" type="tns:getGroupUsersResponse"/>
+    <xs:element name="addUserToGroupRequest" type="tns:addUserToGroupRequest"/>
+    <xs:element name="addUserToGroupResponse" type="tns:addUserToGroupResponse"/>
+    <xs:element name="deleteUserFromGroupRequest" type="tns:deleteUserFromGroupRequest"/>
+    <xs:element name="deleteUserFromGroupResponse" type="tns:deleteUserFromGroupResponse"/>
+    <xs:element name="getGroupCoursesRequest" type="tns:getGroupCoursesRequest"/>
+    <xs:element name="getGroupCoursesResponse" type="tns:getGroupCoursesResponse"/>
+
+    <xs:element name="listRolesToGroupsRequest" type="tns:listRolesToGroupsRequest"/>
+    <xs:element name="listRolesToGroupsResponse" type="tns:listRolesToGroupsResponse"/>
+    <xs:element name="getRoleToGroupRequest" type="tns:getRoleToGroupRequest"/>
+    <xs:element name="getRoleToGroupResponse" type="tns:getRoleToGroupResponse"/>
+    <xs:element name="createRoleToGroupRequest" type="tns:createRoleToGroupRequest"/>
+    <xs:element name="createRoleToGroupResponse" type="tns:createRoleToGroupResponse"/>
+    <xs:element name="updateRoleToGroupRequest" type="tns:updateRoleToGroupRequest"/>
+    <xs:element name="updateRoleToGroupResponse" type="tns:updateRoleToGroupResponse"/>
+    <xs:element name="deleteRoleToGroupRequest" type="tns:deleteRoleToGroupRequest"/>
+    <xs:element name="deleteRoleToGroupResponse" type="tns:deleteRoleToGroupResponse"/>
+
+    <xs:element name="listCoursesRequest" type="tns:listCoursesRequest"/>
+    <xs:element name="listCoursesResponse" type="tns:listCoursesResponse"/>
+    <xs:element name="listCoursesTLRequest" type="tns:listCoursesTLRequest"/>
+    <xs:element name="listCoursesTLResponse" type="tns:listCoursesTLResponse"/>
+    <xs:element name="getCourseTimeLimitRequest" type="tns:getCourseTimeLimitRequest"/>
+    <xs:element name="getCourseTimeLimitResponse" type="tns:getCourseTimeLimitResponse"/>
+    <xs:element name="setCourseTimeLimitRequest" type="tns:setCourseTimeLimitRequest"/>
+    <xs:element name="setCourseTimeLimitResponse" type="tns:setCourseTimeLimitResponse"/>
+
+
+    <xs:complexType name="getUserByLoginRequest">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getUserByLoginResponse">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="0"/>
+            <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+            <xs:element name="secondName" type="xs:string" minOccurs="0"/>
+            <xs:element name="jabberId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="createUserRequest">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+            <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+            <xs:element name="secondName" type="xs:string" minOccurs="0"/>
+            <xs:element name="jabberId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="createUserResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="updateUserRequest">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+            <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+            <xs:element name="secondName" type="xs:string" minOccurs="0"/>
+            <xs:element name="jabberId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="updateUserResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteUserRequest">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteUserResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="getUserGroupsRequest">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+            <xs:element name="roles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getUserGroupsResponse">
+        <xs:sequence>
+            <xs:element name="userGroups" type="tns:userGroup" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="listGroupsRequest">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="listGroupsResponse">
+        <xs:sequence>
+            <xs:element name="groups" type="tns:group" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="createGroupRequest">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="createGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="updateGroupRequest">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="1"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="updateGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteGroupRequest">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="getGroupUsersRequest">
+        <xs:sequence>
+            <xs:element name="groupId" type="xs:long" minOccurs="1"/>
+            <xs:element name="roles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getGroupUsersResponse">
+        <xs:sequence>
+            <xs:element name="groupUsers" type="tns:groupUser" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="addUserToGroupRequest">
+        <xs:sequence>
+            <xs:element name="groupId" type="xs:long" minOccurs="1"/>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+            <xs:element name="roles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="addUserToGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteUserFromGroupRequest">
+        <xs:sequence>
+            <xs:element name="groupId" type="xs:long" minOccurs="1"/>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+            <xs:element name="roles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteUserFromGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getGroupCoursesRequest">
+        <xs:sequence>
+            <xs:element name="groupId" type="xs:long" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getGroupCoursesResponse">
+        <xs:sequence>
+            <xs:element name="courses" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="listRolesToGroupsRequest">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="listRolesToGroupsResponse">
+        <xs:sequence>
+            <xs:element name="roleToGroups" type="tns:roleToGroup" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getRoleToGroupRequest">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="role" type="xs:string" minOccurs="0"/>
+            <xs:element name="groupId" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getRoleToGroupResponse">
+        <xs:sequence>
+            <xs:element name="roleToGroups" type="tns:roleToGroup" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="createRoleToGroupRequest">
+        <xs:sequence>
+            <xs:element name="role" type="xs:string" minOccurs="1"/>
+            <xs:element name="groupId" type="xs:long" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="createRoleToGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="updateRoleToGroupRequest">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="1"/>
+            <xs:element name="role" type="xs:string" minOccurs="0"/>
+            <xs:element name="groupId" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="updateRoleToGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteRoleToGroupRequest">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="role" type="xs:string" minOccurs="0"/>
+            <xs:element name="groupId" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="deleteRoleToGroupResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="group">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="groupUser">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="0"/>
+            <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+            <xs:element name="secondName" type="xs:string" minOccurs="0"/>
+            <xs:element name="roles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userGroup">
+        <xs:sequence>
+            <xs:element name="group" type="tns:group" minOccurs="0"/>
+            <xs:element name="roles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="roleToGroup">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="role" type="xs:string" minOccurs="0"/>
+            <xs:element name="groupId" type="xs:long" minOccurs="0"/>
+            <xs:element name="groupName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="listCoursesRequest">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="listCoursesResponse">
+        <xs:sequence>
+            <xs:element name="courses" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="listCoursesTLRequest">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="listCoursesTLResponse">
+        <xs:sequence>
+            <xs:element name="courseInfos" type="tns:courseInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getCourseTimeLimitRequest">
+        <xs:sequence>
+            <xs:element name="courseId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getCourseTimeLimitResponse">
+        <xs:sequence>
+            <xs:element name="courseId" type="xs:long" minOccurs="0"/>
+            <xs:element name="courseName" type="xs:string" minOccurs="0"/>
+            <xs:element name="timeLimit" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="setCourseTimeLimitRequest">
+        <xs:sequence>
+            <xs:element name="courseId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="timeLimit" type="xs:int" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="setCourseTimeLimitResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="courseInfo">
+        <xs:sequence>
+            <xs:element name="courseId" type="xs:long" minOccurs="0"/>
+            <xs:element name="courseName" type="xs:string" minOccurs="0"/>
+            <xs:element name="timeLimit" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="course">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+
